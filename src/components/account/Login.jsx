@@ -3,7 +3,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { TextField, Box, Button, Typography, styled } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-import { API } from '..//../service/api';     //../../service/api
+import { API } from '../../service/api';
 // console.log(API)
 import { DataContext } from '../../context/DataProvider';
 
@@ -102,6 +102,7 @@ const Login = ({ isUserAuthenticated }) => {
 
             sessionStorage.setItem('accessToken', `Bearer ${response.data.accessToken}`);
             sessionStorage.setItem('refreshToken', `Bearer ${response.data.refreshToken}`);
+            // console.log(response.data.accessToken,response.data.refreshToken)
             setAccount({ name: response.data.name, username: response.data.username });
             
             isUserAuthenticated(true)
